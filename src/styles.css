@@ -102,6 +102,8 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -156,6 +158,24 @@
   }
   .custom-scrollbar-workflows::-webkit-scrollbar-thumb:hover {
     background: var(--primary-glow);
+  }
+
+  /* Otimizações de Performance e Renderização (GPU) */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity;
+  }
+
+  /* Otimização para o Canvas de Workflows */
+  .react-flow__pane {
+    cursor: grab;
+    will-change: transform;
+  }
+
+  .react-flow__node {
+    will-change: transform;
   }
 }
 
